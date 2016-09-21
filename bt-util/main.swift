@@ -60,8 +60,6 @@ switch arg {
                 print(String(format:"%@ - %@ %@", device.name, device.addressString, device.isConnected() ? "(Connected)" : ""))
             }
         }
-        
-    break
     
     case "status", "--status", "-s":
         let prefs = IOBluetoothPreferences()
@@ -71,8 +69,8 @@ switch arg {
         print(String(format: "%@ %@ by %@\n%@", appName, appVersion, appAuthor, appGithub))
     
     case "help", "--help", "-h":
-    break
+        printHelp()
     
     default:
-    break
+        printHelp()
 }
