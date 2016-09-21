@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E69F2F611D932E65007BD8D1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F2F601D932E65007BD8D1 /* main.swift */; };
+		E69F2F691D932F11007BD8D1 /* m.m in Sources */ = {isa = PBXBuildFile; fileRef = E69F2F681D932F11007BD8D1 /* m.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		E69F2F5D1D932E65007BD8D1 /* bt-util */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "bt-util"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E69F2F601D932E65007BD8D1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E69F2F671D932F11007BD8D1 /* bt-util-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bt-util-Bridging-Header.h"; sourceTree = "<group>"; };
+		E69F2F681D932F11007BD8D1 /* m.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				E69F2F601D932E65007BD8D1 /* main.swift */,
+				E69F2F681D932F11007BD8D1 /* m.m */,
+				E69F2F671D932F11007BD8D1 /* bt-util-Bridging-Header.h */,
 			);
 			path = "bt-util";
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 				TargetAttributes = {
 					E69F2F5C1D932E64007BD8D1 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -121,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E69F2F611D932E65007BD8D1 /* main.swift in Sources */,
+				E69F2F691D932F11007BD8D1 /* m.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +225,11 @@
 		E69F2F651D932E65007BD8D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bt-util/bt-util-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -226,7 +237,10 @@
 		E69F2F661D932E65007BD8D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bt-util/bt-util-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
