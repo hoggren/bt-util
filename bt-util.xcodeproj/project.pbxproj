@@ -28,6 +28,7 @@
 		E69F2F601D932E65007BD8D1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E69F2F671D932F11007BD8D1 /* bt-util-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bt-util-Bridging-Header.h"; sourceTree = "<group>"; };
 		E69F2F681D932F11007BD8D1 /* m.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m.m; sourceTree = "<group>"; };
+		E69F2F6A1D93377E007BD8D1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +45,7 @@
 		E69F2F541D932E64007BD8D1 = {
 			isa = PBXGroup;
 			children = (
+				E69F2F6A1D93377E007BD8D1 /* LICENSE */,
 				E69F2F5F1D932E65007BD8D1 /* bt-util */,
 				E69F2F5E1D932E65007BD8D1 /* Products */,
 			);

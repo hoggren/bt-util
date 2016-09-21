@@ -8,24 +8,67 @@
 
 import Foundation
 
-//var arguments = CommandLine.arguments
+func printHelp() {
+    exit(0)
+}
 
-var arguments = ["/usur/sjsjs/ssjsj", "status"]
-arguments.removeFirst()
+let appName    = "bt-util"
+let appVersion = "0.0.1"
+let appAuthor  = "Patrik Hoggren <patrik@hwkdev.se>"
+let appGithub  = "https://github.com/phoggren/bt-util"
+
+//var arguments = CommandLine.arguments
+var arguments = ["/usur/sjsjs/ssjsj", "list"] // for developing
+
 
 if arguments.count == 1 {
-    // no args!
+    printHelp()
 }
+
+arguments.removeFirst()
 
 var arg = arguments.removeFirst()
 
 switch arg {
+    case "start", "--start":
+        let prefs = IOBluetoothPreferences()
+        prefs._setPowered(on: true)
+    
+    case "stop", "--stop":
+        let prefs = IOBluetoothPreferences()
+        prefs._setPowered(on: false)
+    
+    case "stop-for", "--stop-for":
+        guard (arguments.count > 0) else {
+            printHelp()
+            break
+        }
+        
+        arg = arguments.removeFirst()
+        
+        if let secs = UInt32(arg) {
+            let prefs = IOBluetoothPreferences()
+            prefs._setPowered(on: false)
+            
+            sleep(secs)
+            prefs._setPowered(on: true)
+        }
+    
+    case "list", "--list", "-l":
+        if let pairedDevices = IOBluetoothDevice.pairedDevices() as? [IOBluetoothDevice] {
+            for device in pairedDevices {
+                print(String(format:"%@ - %@ %@", device.name, device.addressString, device.isConnected() ? "(Connected)" : ""))
+            }
+        }
+        
+    break
+    
     case "status", "--status", "-s":
         let prefs = IOBluetoothPreferences()
         print(String(format: "Status: %@", prefs.poweredOn ? "On" : "Off"))
     
     case "version", "--version", "-v":
-    break
+        print(String(format: "%@ %@ by %@\n%@", appName, appVersion, appAuthor, appGithub))
     
     case "help", "--help", "-h":
     break
