@@ -1,14 +1,17 @@
-//
-//  main.swift
-//  bt-util
-//
-//  Created by Ghost on 2016-09-21.
-//  Copyright © 2016 Hwkdev. All rights reserved.
-//
-
 import Foundation
 
 func printHelp() {
+    print("Usage\n" +
+            "    bt-util [OPTIONS]\n\n" +
+            "Options\n" +
+            "    status        Bluetooth status, i.e. on or off.\n" +
+            "    start         Start bluetooth.\n" +
+            "    stop          Stop bluetooth.\n" +
+            "    stop-for [N]  Stop for N seconds, then start again.\n" +
+            "    list          List paired devices.\n" +
+            "    version       Version and author information.\n" +
+            "    help          Prints help information.\n"
+    )
     exit(0)
 }
 
@@ -18,8 +21,7 @@ let appAuthor  = "Patrik Hoggren <patrik@hwkdev.se>"
 let appGithub  = "https://github.com/phoggren/bt-util"
 
 //var arguments = CommandLine.arguments
-var arguments = ["/usur/sjsjs/ssjsj", "list"] // for developing
-
+var arguments = ["/test/dev/me", "help"] // for developing
 
 if arguments.count == 1 {
     printHelp()
@@ -30,6 +32,10 @@ arguments.removeFirst()
 var arg = arguments.removeFirst()
 
 switch arg {
+    case "status", "--status", "-s":
+        let prefs = IOBluetoothPreferences()
+        print(String(format: "Status: %@", prefs.poweredOn ? "On" : "Off"))
+    
     case "start", "--start":
         let prefs = IOBluetoothPreferences()
         prefs._setPowered(on: true)
@@ -54,21 +60,17 @@ switch arg {
             prefs._setPowered(on: true)
         }
     
-    case "list", "--list", "-l":
+    case "list", "--list":
         if let pairedDevices = IOBluetoothDevice.pairedDevices() as? [IOBluetoothDevice] {
             for device in pairedDevices {
                 print(String(format:"%@ - %@ %@", device.name, device.addressString, device.isConnected() ? "(Connected)" : ""))
             }
         }
     
-    case "status", "--status", "-s":
-        let prefs = IOBluetoothPreferences()
-        print(String(format: "Status: %@", prefs.poweredOn ? "On" : "Off"))
-    
-    case "version", "--version", "-v":
+    case "version", "--version":
         print(String(format: "%@ %@ by %@\n%@", appName, appVersion, appAuthor, appGithub))
     
-    case "help", "--help", "-h":
+    case "help", "--help":
         printHelp()
     
     default:
