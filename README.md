@@ -22,4 +22,5 @@ Command-line bluetooth utility for macOS in Swift.
 
 #### Releases
 ###### 0.0.1
-Initial release!
+Initial release!  
+[Binary for macOS](https://github.com/phoggren/bt-util/releases)
