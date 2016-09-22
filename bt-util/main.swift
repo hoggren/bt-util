@@ -20,8 +20,8 @@ let appVersion = "0.0.1"
 let appAuthor  = "Patrik Hoggren <patrik@hwkdev.se>"
 let appGithub  = "https://github.com/phoggren/bt-util"
 
-//var arguments = CommandLine.arguments
-var arguments = ["/test/dev/me", "help"] // for developing
+var arguments = CommandLine.arguments
+// var arguments = ["/test/dev/me", "help"] // for developing
 
 if arguments.count == 1 {
     printHelp()
