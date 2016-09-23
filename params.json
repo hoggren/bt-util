@@ -1,6 +1,6 @@
 {
   "name": "Bt-util",
   "tagline": "Command-line bluetooth utility for macOS in Swift",
-  "body": "### bt-util\r\nCommand-line bluetooth utility for macOS!\r\n\r\n### Releases\r\n#### v0.0.1 - INITIAL!",
+  "body": "## bt-util \r\nCommand-line bluetooth utility for macOS in Swift.\r\n\r\n* Start\r\n* Stop\r\n* Stop for [delay]\r\n* Bluetooth status\r\n* List devices\r\n\r\n#### Documentation\r\n###### Syntax\r\n`bt-util [OPTIONS]`\r\n\r\n###### Options\r\n`status` - Bluetooth status, i.e. on or off.  \r\n`start` - Start bluetooth.  \r\n`stop` - Stop bluetooth.  \r\n`stop-for [N]` - Stop for N seconds, then start again.  \r\n`list` - List paired devices.  \r\n`version` - Version and author information.  \r\n`help` - Prints help information.\r\n\r\n#### Releases\r\n###### 0.0.1\r\nInitial release!  \r\n[Binary for macOS](https://github.com/phoggren/bt-util/releases)",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
